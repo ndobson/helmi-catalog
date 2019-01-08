@@ -19,6 +19,8 @@ chart-values:
   mongodbPassword: "{{ generatePassword }}"
   mongodbRootPassword:  "{{ generatePassword }}"
   mongodbDatabase: db
+  persistence:
+    storageClass: "portworx-sc"
 ---
 user-credentials:
   uri: "mongodb://{{ .Values.mongodbUsername }}:{{ .Values.mongodbPassword }}@{{ .Release.Name }}-mongodb.{{ .Release.Namespace }}.svc.cluster.local:{{ .Services.Port "mongodb" 27017 }}/{{ .Values.mongodbDatabase }}"
