@@ -13,6 +13,15 @@ service:
     chart-values:
       persistence:
         size: 8Gi
+  -
+    _id: 905b1f0e-c815-41d4-b3e4-6ccb602b9e81
+    _name: small
+    description: "Betterer MongoDB Instance"
+    chart-values:
+      persistence:
+        size: 16Gi
+      replicaSet:
+        enabled: true
 ---
 chart-values:
   mongodbUsername: "{{ generateUsername }}"
